@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+<style>
+body{
+    background-image:url(img/atelier.jpg);
+
+}
+h1{
+    font-size: 50px;
+    font-family: Impact;
+    margin-left:8%;
+    margin-right:8%;
+    margin-top:20px;
+    color:#EF9B0F;
+
+}
+h2{
+    font-size: 47px;
+    font-family: "Comic Sans MS";
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:20px;
+    color:black;
+
+
+
+}
+#acc{
+    background-color: #154360;
+    width: 61%;
+    height: 520px;
+    margin-left:200px;
+    margin-right:100px;
+    margin-top:50px;
+    border-radius: 50px;
+}
+#img{
+    width:300px;
+    height:280px;
+    margin-left:150px;
+    margin-right:150px;
+}
+</style>
+<div id="acc">
+<br>
+<h2>Bienvenue à notre atelier</h2>
+<br>
+      <img src='{{ asset("img/saber.jpg") }}' id="img">
+       <br>
+      <h1>"Saber Minuiserie Bois"</h1>
+     
+
+</div>
+
+{% endblock %}

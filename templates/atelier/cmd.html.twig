@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation produit!{% endblock %}
+
+{% block body %}
+<style>
+
+.divForm{
+        width:500px;
+        margin-left:25%;
+        margin-top:50px;
+
+}
+h1{
+    text-align:center;
+}
+#pb{
+	margin-top:100px;
+	text-align:center;
+}
+</style>
+
+
+<div class="divForm">
+<h1>Voulez-vous passer une commande?</h1>
+{{ form_start(form)}}
+{{ form_row(form.cin ,{'attr':{'placeholder':"Cin", 'class':"field", 'id':""}})}}
+{{ form_row(form.nom ,{'attr':{'placeholder':"Nom", 'class':"field", 'id':""}})}}
+{{ form_row(form.dateDeNaissance ,{'attr':{'placeholder':"Date de naissance", 'class':"field", 'id':""}})}}
+{{ form_row(form.adresse ,{'attr':{'placeholder':"adresse", 'class':"field", 'id':""}})}}
+{{ form_row(form.tel ,{'attr':{'placeholder':"tel", 'class':"field", 'id':""}})}}
+
+<button type="submit" class="btn btn-success" id="">Continuer</button>
+{{ form_end(form)}}
+<br>
+<button type="submit" class="btn btn-warning" id="">Annuler</button>
+</div>
+
+{% endblock %}

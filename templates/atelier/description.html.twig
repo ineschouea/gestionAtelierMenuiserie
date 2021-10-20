@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Description produit{% endblock %}
+
+{% block body %}
+
+<style>
+img{
+    width:400px;
+    height:300px;
+}
+
+table{
+    width:800px;
+    height:300px; 
+    margin-right:100px;
+    margin-left:100px;
+    margin-top:50px;
+
+}
+td{
+    padding:20px;
+}
+</style>
+
+<produit>
+    <table>
+    <tr>
+    <td>
+    <img src="../img/{{ produit.getImage() }}"/>
+
+    <h4>{{produit.getTitre()}}</h4>
+    <h4>{{produit.getPrix()}}DT</h4>
+    </td>
+    <td>
+    <p>{{produit.getDescription()}}<p>
+    </td>
+    </tr>
+    </table>
+</produit>
+
+{% endblock %}

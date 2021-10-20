@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits{% endblock %}
+
+{% block body %}
+
+<style>
+img{
+    width:300px;
+    height:200px;
+}
+.clts{
+    margin-right:10%;
+    margin-left:10%;
+    margin-top:50px;
+
+
+}
+h1{
+    text-align:center;
+    margin-top:50px;
+}
+</style>
+<h1>Liste de clients</h1>
+ {% for client in clients %}
+
+<client>
+<div class="clts">
+<table class="table table-hover">
+<tr class="table-secondary">
+<th>Cin</th>
+<th>Nom</th>
+<th>Date de naissance</th>
+<th>Addresse</th>
+<th>Tel</th>
+<th>Commandes</th>
+
+</tr>
+<tr>
+<td>{{client.getCin()}}</td>
+<td>{{client.getNom()}}</td>
+<td>{{client.getDateDeNaissance()|date('d/m/Y')}}</td>
+<td>{{client.getAdresse()}}</td>
+<td>{{client.getTel()}}</td>
+<td>
+    <tr class="table-primary">
+     <th>Commande</th>
+     <th>PrixTotal</th>
+    </tr>
+     {% for facture in client.getFactures() %}
+    <tr>
+      <td>{{facture.getId()}}</td>
+      <td>{{facture.getPrixTotal()}}</td>
+    </tr>
+     {% endfor %}
+
+</td>
+</tr>
+</table>
+</div>
+
+</client>
+{% endfor %}
+
+ <div class="navigation">
+            {{ knp_pagination_render(clients) }}
+        </div>
+{% endblock %}

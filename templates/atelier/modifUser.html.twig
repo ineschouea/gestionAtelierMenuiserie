@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification produit!{% endblock %}
+
+{% block body %}
+<style>
+
+#divForm{
+        width:500px;
+        margin-left:25%;
+        margin-top:50px;
+
+}
+h1{
+    text-align:center;
+}
+</style>
+<div id="divForm">
+<h1>Modifier un utilisateur</h1>
+{{ form_start(formUser,{'attr':{ 'class':"form", 'id':""}})}}
+{{ form_row(formUser.email,{'attr':{'placeholder':"xxxx.xxx@yyy.zzz", 'class':"field", 'id':""}})}}
+{{ form_row(formUser.password,{'attr':{'placeholder':"mot de passe", 'class':"field", 'id':""}})}}
+
+<button type="submit" class="btn btn-primary" id="">Modifier</button>
+{{ form_end(formUser)}}
+</div>
+
+{% endblock %}

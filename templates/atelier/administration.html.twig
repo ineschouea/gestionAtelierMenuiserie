@@ -1,0 +1,43 @@
+{% extends 'base.html.twig'%}
+
+{% block body %}
+<style>
+
+#divForm{
+        width:500px;
+        margin-left:25%;
+        margin-right:25%;
+        margin-top:50px;
+        text-align:center;
+
+}
+#pb{
+	margin-top:100px;
+	text-align:center;
+}
+</style>
+
+<div id="divForm">
+<h1>Administration</h1>
+    <a href="{{path('listeProdAdmin')}}" class="btn btn-primary">gérer produits</a>
+    <br>
+     <br>
+    <a href="{{path('listeCmd')}}" class="btn btn-primary">gérer commandes</a>
+     <br>
+      <br>
+    <a href="{{path('listeClt')}}" class="btn btn-primary">gérer clients</a>
+     <br>
+      <br>
+    <a href="{{path('admin')}}" class="btn btn-primary">gérer utlisaturs</a>
+     <br>
+      <br>
+    <a href="{{path('listecontact')}}" class="btn btn-primary">Consulter messages</a>
+    <br>
+      <br>
+    <a href="{{path('security_registration')}}" class="btn btn-primary">Ajouter utilisateur</a>
+    <br>
+      <br>
+    <a href="{{path('creation')}}" class="btn btn-primary">Ajouter produit</a>
+</div>
+
+{% endblock %}

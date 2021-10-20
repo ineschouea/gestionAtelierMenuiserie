@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation produit!{% endblock %}
+
+{% block body %}
+<style>
+
+#divForm{
+        width:500px;
+        margin-left:25%;
+        margin-top:50px;
+
+}
+h1{
+    text-align:center;
+}
+</style>
+<div id="divForm">
+<h1>Ajouter un nouveau produit</h1>
+{{ form_start(formProd,{'attr':{ 'class':"form", 'id':""}})}}
+{{ form_row(formProd.titre ,{'attr':{'placeholder':"titre", 'class':"field", 'id':""}})}}
+{{ form_row(formProd.prix,{'attr':{'placeholder':"prix", 'class':"field", 'id':""}})}}
+{{ form_row(formProd.description,{'attr':{'placeholder':"description", 'class':"field", 'id':""}})}}
+{{ form_row(formProd.image,{'attr':{'placeholder':"image", 'class':"field2", 'id':""}})}}
+
+<button type="submit" class="btn btn-primary" id="">Ajouter</button>
+{{ form_end(formProd)}}
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification produit!{% endblock %}
+
+{% block body %}
+<style>
+
+#divForm{
+        width:500px;
+        margin-left:25%;
+        margin-top:50px;
+
+}
+h1{
+    text-align:center;
+}
+</style>
+<div id="divForm">
+<h1>Modifier un produit</h1>
+{{ form_start(formProd,{'attr':{ 'class':"form", 'id':""}})}}
+{{ form_row(formProd.titre ,{'attr':{'placeholder':"titre", 'class':"field", 'id':""}})}}
+{{ form_row(formProd.prix,{'attr':{'placeholder':"prix", 'class':"field", 'id':""}})}}
+{{ form_row(formProd.description,{'attr':{'placeholder':"description", 'class':"field", 'id':""}})}}
+
+<button type="submit" class="btn btn-primary" id="">Modifier</button>
+{{ form_end(formProd)}}
+</div>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig'%}
+
+{% block body %}
+<style>
+.contact{
+    margin-right:5%;
+    margin-left:5%;
+    margin-top:50px;
+}
+
+.msg{
+	width:1000px;
+}
+h1,th{
+		text-align:center;
+
+}
+td{
+	padding:5px;
+}
+tr{
+	margin-top:10px;
+}
+hr{
+	color:white;
+}
+table, th, td {
+  border: 1px solid white;
+}
+</style>
+  <div class="contact">
+ <h1> <B>Liste de messages </B></h1>
+  
+    <table  >
+      
+		<tr class="table-danger">
+			<th class="normal">Id</th>
+			<th class="normal">Nom</th>
+			<th class="normal">Prenom</th>
+			<th class="normal">Email</th>
+			<th class="normal">Tel</th>
+			<th class="normal">Objet</th>
+			<th class="msg" >Message</th>
+	        <th class="normal">Supprimer</th>
+		</tr>
+		{% for contact in contacts %}
+
+
+			<tr>
+				<td class="normal">
+					<b>{{ contact.id  }}</b>
+				</td>
+				<td class="normal">{{ contact.nom  }}</td>
+				<td class="normal">{{ contact.prenom  }}</td>
+				<td class="normal">{{ contact.email  }}</td>
+				<td class="normal">{{ contact.tel  }}</td>
+				<td class="normal">{{ contact.objet  }}</td>
+				<td class="msg">{{ contact.msg  }}</td>
+		        <td class="normal"><a href="/suppContact/{{ contact.id }}" class="btn btn-primary my-2 my-sm-0" onclick="return confirm('Voulez vous vraiment supprimer ce message?')">Supprimer</a></td>
+			</tr>
+		
+
+{% endfor %}
+    </table>
+</div>
+ <div class="navigation">
+            {{ knp_pagination_render(contacts) }}
+        </div>
+{% endblock %}

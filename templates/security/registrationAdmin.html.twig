@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification produit!{% endblock %}
+
+{% block body %}
+<style>
+
+#divForm{
+        width:500px;
+        margin-left:25%;
+        margin-top:50px;
+
+}
+h1{
+    text-align:center;
+}
+</style>
+<div id="divForm">
+<h1>Inscription sur le site</h1>
+{{ form_start(form)}}
+{{ form_row(form.userName,{'label': 'Nom d\'utilisateur','attr':{'placeholder':"Nom d\'utilisateur", 'class':"field", 'id':""}})}}
+{{ form_row(form.email,{'label': 'Email','attr':{'placeholder':"email", 'class':"field", 'id':""}})}}
+{{ form_row(form.password,{'label': 'Mot de passe','attr':{'placeholder':"mot de passe", 'class':"field", 'id':""}})}}
+{{ form_row(form.confirm_password,{'label': 'Confirmation de mot de passe','attr':{'placeholder':"répétez votre mot de passe", 'class':"field", 'id':""}})}}
+{{ form_row(form.role,{'label': 'Rôle','attr':{'placeholder':"mot de passe", 'class':"field", 'id':""}})}}
+
+<button type="submit" class="btn btn-primary" id="">Inscription</button>
+{{ form_end(form)}}
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits{% endblock %}
+
+{% block body %}
+
+<style>
+img{
+    width:300px;
+    height:200px;
+}
+#prod{
+    margin-right:350px;
+    margin-left:350px;
+   margin-top:50px;
+
+}
+h1{
+    text-align:center;
+    margin-top: 50px;
+}
+</style>
+<h1>Liste des produits</h1>
+ {% for produit in produits %}
+
+<produit>
+<div id="prod">
+    <img src='img/{{ produit.getImage() }}'/>
+    <h6>{{ produit.getTitre() }}</h6>
+    <h6>{{ produit.getPrix() }} DT</h6>
+    <a href="{{path('desc', {'id':produit.id})}}" class="btn btn-primary">Lire la suite</a>
+</div>
+
+</produit>
+{% endfor %}
+
+ <div class="navigation">
+            {{ knp_pagination_render(produits) }}
+        </div>
+{% endblock %}

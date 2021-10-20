@@ -1,0 +1,48 @@
+{% extends 'base.html.twig'%}
+
+{% block body %}
+<style>
+.user{
+    margin-right:5%;
+    margin-left:2%;
+    margin-top:50px;
+
+
+}
+
+</style>
+  <div class="user">
+ <h1> <B>Liste des utilisateurs </B></h1>
+  
+    <table class="table">
+      
+		<tr class="table-danger">
+			<th>Id</th>
+			<th>Login</th>
+			<th>Mot de passe</th>
+			<th>Rôle</th>
+			<th>Supprimer</th>
+
+		</tr>
+		{% for user in users %}
+
+
+			<tr>
+				<td>
+					<b>{{ user.id  }}</b>
+				</td>
+				<td>{{ user.email  }}</td>
+				<td>{{ user.password  }}</td>
+				<td>{{ user.role  }}</td>
+		        <td><a href="/suppUser/{{ user.id }}" class="btn btn-primary my-2 my-sm-0" onclick="return confirm('Voulez vous vraiment supprimer cet utilisateur?')">Supprimer</a></td>
+			</tr>
+
+{% endfor %}
+    </tbody>
+    </table>
+</div>
+ <div class="navigation">
+            {{ knp_pagination_render(users) }}
+        </div>
+
+{% endblock %}

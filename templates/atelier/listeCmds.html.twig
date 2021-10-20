@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits{% endblock %}
+
+{% block body %}
+
+<style>
+img{
+    width:300px;
+    height:200px;
+}
+.facts{
+    margin-right:10%;
+    margin-left:10%;
+    margin-top:50px;
+
+
+}
+h1{
+    text-align:center;
+    margin-top:50px;
+}
+</style>
+<h1>Liste de commandes</h1>
+ {% for facture in factures %}
+
+<facture>
+<div class="facts">
+<table class="table table-hover">
+<tr class="table-secondary">
+<th>Id-Facture</th>
+<th>Prix_Total</th>
+<th>Id-Client</th>
+<th>Nom-Client</th>
+<th>Lignes commandes</th>
+</tr>
+<tr>
+<td>{{facture.getId()}}</td>
+<td>{{facture.getPrixTotal()}}</td>
+<td>{{facture.getClient().getId()}}</td>
+<td>{{facture.getClient().getNom()}}</td>
+<td>
+    <tr class="table-primary">
+     <th>Produit</th>
+     <th>Qté</th>
+    </tr>
+     {% for lc in facture.getLigneCommandes() %}
+    <tr>
+      <td>{{lc.getProduit.getTitre()}}</td>
+      <td>{{lc.getQte()}}</td>
+    </tr>
+     {% endfor %}
+
+</td>
+</tr>
+</table>
+</div>
+
+</facture>
+{% endfor %}
+
+ <div class="navigation">
+            {{ knp_pagination_render(factures) }}
+        </div>
+{% endblock %}

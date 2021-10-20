@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation produit!{% endblock %}
+
+{% block body %}
+<style>
+
+.divForm{
+        width:500px;
+        margin-left:25%;
+        margin-top:50px;
+
+}
+h1{
+    text-align:center;
+}
+</style>
+
+<div class="divForm">
+<h1>Ligne de commande </h1>
+
+{{ form_start(formCmd)}}
+{{ form_row(formCmd.produit ,{'attr':{'placeholder':"titre", 'class':"field", 'id':""}})}}
+{{ form_row(formCmd.qte,{'attr':{'placeholder':"quantité", 'class':"field", 'id':""}})}}
+
+<button type="submit" class="btn btn-primary" id="">Ajouter</button>
+{{ form_end(formCmd)}}
+<br>
+<a type="submit" class="btn btn-danger" href="{{path('atelier')}}">Terminer</a>
+</div>
+
+{% endblock %}
